@@ -21,6 +21,11 @@
     scrollbar-width: thin;
   }
 
+  .empty-message {
+    font-size: 22px;
+    margin: auto 35px;
+  }
+
   .cart-items::-webkit-scrollbar {
   width: 17px;
 }
