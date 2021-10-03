@@ -6,7 +6,13 @@
   .title {
   	font-size: 28px;
   	margin-bottom: 25px;
+    width: 3.5%;
+    cursor: pointer;
+    
+  &:hover {
+    color: grey;
   }
+}
   .preview {
   	display: flex;
   	justify-content: space-between;
