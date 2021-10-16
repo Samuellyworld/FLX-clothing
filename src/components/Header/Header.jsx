@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {createStructuredSelector} from 'reselect';
 import {selectCartHidden} from '../../redux/cart/cart-selectors';
 import {selectCurrentUser} from '../../redux/user/user-selectors';
+import {clearCart} from '../../redux/cart/cart-action';
 
 import './Header.scss';
 import {auth} from '../../firebase/firebase';
@@ -13,7 +14,7 @@ import img from '../../assets/logo.png';
 
 
 
-const Header = ({currentUser, hidden}) => (
+const Header = ({currentUser, hidden, clearCart}) => (
 		<div className='header'>
 		  <Link className='logo-container' to='/'>
 		  	<img src={img} alt='logo' className='logo'/>
@@ -27,7 +28,10 @@ const Header = ({currentUser, hidden}) => (
 		  </Link> 
 		  {
 		  	currentUser ? (
-		  	  <div className='option' onClick={()=> auth.signOut()}>
+		  	  <div className='option' onClick={()=> {
+		  	  	auth.signOut()
+		  	  	clearCart()
+		  	  }}>
 		  	    SIGN OUT
 		  	   </div>
 		  		) :
@@ -46,8 +50,11 @@ const Header = ({currentUser, hidden}) => (
 		</div>
 
 	)
+const mapDispatchToProps = (dispatch) => ({
+	clearCart : clear => dispatch(clearCart(clear))
+})
 const mapStateToProps = createStructuredSelector({
 	currentUser : selectCurrentUser,
 	hidden : selectCartHidden
 })
-export default connect(mapStateToProps)(Header);
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
