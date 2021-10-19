@@ -2,6 +2,7 @@ import React,{Component} from 'react';
 import FormInput from '../Form-Input/Form-Input';
 import CustomButton from '../Custom-Button/Custom-Button';
 import {auth} from '../../firebase/firebase';
+import './Password-Reset.scss';
 
 class PasswordReset extends Component{
 	constructor() {
@@ -60,13 +61,14 @@ handleChange = e => {
             }
             <form onSubmit={this.sendResetEmail}>
 	            <FormInput handleChange={this.handleChange}
+	              className="form-input"
 	              type='email' 
 	  		 	  name='email' 
 	  		 	  value={email}
 	  		 	  label ='Email Address'
 	  		 		    required />
 	  		 	<CustomButton type='submit'
-	  		 		>
+	  		 		isGoogleSignIn>
 	  		 	 PASSWORD RESET 
 	  		 	 </CustomButton>
   		 	</form>

@@ -38,6 +38,12 @@ $main-color : black;
   input[type ='password'] {
   	letter-spacing: 0.3em;
   }
+  input:valid {
+    border-bottom: 1px solid green
+  }
+  input:invalid {
+    border-bottom: 1px solid red;
+  }
   .form-input-label {
   	color: $sub-color;
   	font-size: 16px;

@@ -12,7 +12,8 @@ class SignUp extends React.Component {
   		displayName : '',
   		email : '',
   		password : '',
-  		confirmPassword : ''
+  		confirmPassword : '',
+      error : null
   	}
   }
 
@@ -20,7 +21,13 @@ class SignUp extends React.Component {
   	event.preventDefault();
   	const {displayName, email, password, confirmPassword} = this.state;
   	 if(password !== confirmPassword ) {
-  	 	alert('Passwords dont match')
+  	 	// alert('Passwords dont match')
+       this.setState({ error : 'Passwords do not match'});
+       setTimeout(() => {
+         this.setState({
+           error : null
+         })
+       }, 3000)
   	 	return;
   	 }
   	 try {
@@ -49,14 +56,22 @@ class SignUp extends React.Component {
   }
 
   render() {
-  	     const {displayName, email, password, confirmPassword} = this.state;
+  	     const {displayName, email, password, confirmPassword, error} = this.state;
   	return (
 
   		<div className='sign-up'>
   		  <h2 className='title'> I do not have an account </h2>
   		  <span> Sign up with your email and password </span>
+        {
+         error !== null && (
+            <div className='error'> 
+              {error}
+            </div> 
+           )
+        }
   		  <form className='sign-up-form' onSubmit={this.handleSubmit} >
   		   <FormInput type='text'
+                 minlength="3" maxlength="100" 
   		   			   name='displayName' 
   		   			   value={displayName} 
   		   			   onChange={this.handleChange}
@@ -70,6 +85,8 @@ class SignUp extends React.Component {
   		   			   required />	 
   		   	<FormInput type='password'
   		   			   name='password' 
+                 title="Please include at least 1 uppercase character, 1 lowercase character, and 1 number, (min.8 characters)" 
+                 pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$"
   		   			   value={password} 
   		   			   onChange={this.handleChange}
   		   			   label='Password' 
@@ -77,6 +94,7 @@ class SignUp extends React.Component {
   		   	<FormInput type='password'
   		   			   name='confirmPassword' 
   		   			   value={confirmPassword} 
+                 pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$"
   		   			   onChange={this.handleChange}
   		   			   label='Confirm Password' 
   		   			   required />		  	

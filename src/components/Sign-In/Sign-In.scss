@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 .sign-in {
 	width: 380px;
 	display: flex;
@@ -12,4 +14,16 @@
   	display: flex;
   	justify-content: space-between;
   }
+  .forgot {
+    color : #1D1959;
+    font-family: 'Roboto', sans-serif;
+    margin-top: 20px;
+     width : 44.3%;
+
+    &:hover {
+      color: blue;
+
+    }
+  }
+
 }
