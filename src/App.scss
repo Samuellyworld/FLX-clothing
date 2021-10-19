@@ -1,3 +1,39 @@
+  ::-webkit-scrollbar {
+       width: 14px;
+       height : 10px;
+      transform-origin: center right;
+      transition: transform 0.3s, opacity 0.3s;
+      opacity: 0; 
+    }
+  ::-webkit-scrollbar:hover {
+        transform: scaleX(1.45); 
+      }
+      ::-webkit-scrollbar:hover, .has-scroll-scrolling .-scrollbar, .has-scroll-dragging .c-scrollbar {
+        opacity: 1; }
+  
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+      cursor: -webkit-pointer
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: grey; 
+    border-radius: 10px;
+      cursor: -webkit-pointer;
+      cursor: pointer;
+    }
+      ::webkit-scroll-dragging ::webkit-scrollbar-thumb {
+        cursor: -webkit-pointer;
+        cursor: pointer;
+       }
+  
+  
+
+
 body {
 	font-family: 'Open Sans Condensed', sans-serif;
 	padding: 20px 60px;
