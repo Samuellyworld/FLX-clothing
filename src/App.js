@@ -11,6 +11,7 @@ import {auth, createUserProfileDocument} from './firebase/firebase';
 
 
 import './App.scss';
+import PasswordReset from './components/Password-Reset/Password-Reset';
 import CheckoutPage from './Pages/CheckoutPage/CheckoutPage';
 import Header from './components/Header/Header';
 import HomePage from './Pages/HomePage/HomePage';
@@ -52,6 +53,7 @@ render() {
        <Route path='/shop' component={ShopPage} />
        <Route path='/signin' render={() => this.props.currentUser ? (<Redirect to ='/' />): (<SignInAndSignUpPage />) } />
        <Route exact path='/checkout' component={CheckoutPage} /> 
+       <Route exact path='/reset password' component={PasswordReset} />
       </Switch>
     </div>
   );

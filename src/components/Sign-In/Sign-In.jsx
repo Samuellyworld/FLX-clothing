@@ -3,6 +3,8 @@ import React,{Component} from 'react';
 import FormInput from '../Form-Input/Form-Input';
 import CustomButton from '../Custom-Button/Custom-Button';
 import {auth, signInWithGoogle} from '../../firebase/firebase';
+import {Link} from 'react-router-dom';
+
 import './Sign-In.scss';
 
 
@@ -64,8 +66,10 @@ class SignIn extends Component {
            Sign in with Google Account
           </CustomButton>
          </div>
-
   		 </form>
+       <Link to='/reset password' className='forgot'> 
+        Forgot your password? 
+       </Link>
   		</div>
 
   		)
