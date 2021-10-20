@@ -30,6 +30,7 @@ sections : [
             title: 'mens',
             imageUrl: 'https://i.ibb.co/R70vBrQ/men.png',
            size: 'large',
+            men : 'last',
             id: 5,
             linkUrl: 'shop/mens'
   

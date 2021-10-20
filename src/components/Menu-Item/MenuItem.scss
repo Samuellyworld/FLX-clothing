@@ -23,14 +23,42 @@
 
   &.large {
     height: 380px;
+
+  @media screen and (max-width: 800px) {
+    height: 220px;
+  }
+
+  }
+ 
+  &:nth-child(2), &:nth-child(4) {
+    @media screen and (max-width: 450px) {
+    margin-left:-162px;
+  }
+}
+
+  &:nth-child(5) {
+    @media screen and (max-width: 450px) {
+      width: 88vw;
+    }
   }
 
   &:first-child {
     margin-right: 7.5px;
+    @media screen and (max-width: 800px) {
+      margin-right: 0px;
+    }
   }
 
   &:last-child {
     margin-left: 7.5px;
+    @media screen and (max-width: 800px) {
+      margin-left: 4.5px;
+    }
+  }
+
+   @media screen and (max-width: 800px) {
+    height: 220px;
+    width: 42vw;
   }
 
   .background-image {
