@@ -20,8 +20,6 @@ class FormInput extends Component {
     this.setState({showPassword : !this.state.showPassword})
   }
   
-  
-
   render(){
    const {handleChange, label, type, ...otherProps} = this.props;
    const {showPassword} = this.state
@@ -48,12 +46,13 @@ class FormInput extends Component {
 	     }
 	     {
 	     	label==='Password' || label ==='Confirm Password' ? (
-             <img alt='password hide' src={showPassword? seen : hide} onClick={this.handleClickShowPassword} /> 
+             <img alt='password hide' 
+               src={showPassword? seen : hide}
+               onClick={this.handleClickShowPassword} 
+               /> 
 	     		) : null
 	     }
-	     
-
-	</div>
+   </div>
 	)
   }
 
