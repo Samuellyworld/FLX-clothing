@@ -27,10 +27,19 @@ class SignIn extends Component {
       await auth.signInWithEmailAndPassword(email, password);
       this.setState({email: '', password: ''})
      } catch(err) {
-       this.setState({error: 'Incorrect Password'})
+       if(err.code === 'auth/user-not-found') {
+          this.setState({error: `There is no user registered with ${email}`})
+         setTimeout(() => {
+            this.setState({error : null})
+         }, 2000)
+       }
+       if(err.code === 'auth/wrong-password') {
+            this.setState({error: 'Incorrect Password'})
        setTimeout(() => {
           this.setState({error : null})
        }, 2000)
+       }
+    
       
        console.log('Error Signing in', err)
      }

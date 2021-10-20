@@ -58,4 +58,12 @@ $main-color : black;
   	@include ShrinkLabel()
   }
  }
+  img {
+    width: 20px;
+    position: absolute;
+    top: 50%;
+    right: 50px;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
 }

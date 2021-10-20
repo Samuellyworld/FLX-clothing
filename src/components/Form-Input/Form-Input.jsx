@@ -1,14 +1,40 @@
-import React from 'react';
+import React,{Component} from 'react';
+
+import hide from '../../assets/hide.png';
+import seen from '../../assets/seen.jpg'
 
 import './Form-Input.scss';
 
-const FormInput = ({handleChange, label, ...otherProps}) => (
-	<div className='group' >
-	  <input 
-	    className='form-input' 
-	     onChange={handleChange}
-	      {...otherProps}
-	      />
+
+
+class FormInput extends Component {
+  constructor ( ) {
+  	super()
+  	this.state= {
+  		showPassword : false
+  	}
+  }
+
+
+ handleClickShowPassword = () => {
+    this.setState({showPassword : !this.state.showPassword})
+  }
+  
+  
+
+  render(){
+   const {handleChange, label, type, ...otherProps} = this.props;
+   const {showPassword} = this.state
+
+  	return (
+      <div className='group'>
+		  <input 
+		    type= {showPassword ? "text" : "password"  }
+		    className='form-input' 
+		     onChange={handleChange}
+		      {...otherProps}
+		      />
+
 	     {
 	     	label ?
 	     	(<label 
@@ -19,12 +45,22 @@ const FormInput = ({handleChange, label, ...otherProps}) => (
 	     	  </label>
 			) 
 			  : null
-
 	     }
+	     {
+	     	label==='Password' || label ==='Confirm Password' ? (
+             <img alt='password hide' src={showPassword? seen : hide} onClick={this.handleClickShowPassword} /> 
+	     		) : null
+	     }
+	     
 
 	</div>
-
 	)
+  }
+
+}
+	
+
+	
 
 
 export default FormInput;
