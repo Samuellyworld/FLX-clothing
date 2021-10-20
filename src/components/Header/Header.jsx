@@ -28,12 +28,12 @@ const Header = ({currentUser, hidden, clearCart}) => (
 		  </Link> 
 		  {
 		  	currentUser ? (
-		  	  <div className='option' onClick={()=> {
+		  	  <Link className='option' onClick={()=> {
 		  	  	auth.signOut()
 		  	  	clearCart()
 		  	  }}>
 		  	    SIGN OUT
-		  	   </div>
+		  	   </Link>
 		  		) :
 		  		(
 		  		<Link className='option' to='/signin' >
