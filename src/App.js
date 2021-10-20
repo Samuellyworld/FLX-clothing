@@ -10,7 +10,7 @@ import {selectCurrentUser} from './redux/user/user-selectors';
 import {auth, createUserProfileDocument} from './firebase/firebase';
 
 
-import './App.scss';
+import {GlobalStyle} from './GlobalStyles';
 import PasswordReset from './components/Password-Reset/Password-Reset';
 import CheckoutPage from './Pages/CheckoutPage/CheckoutPage';
 import Header from './components/Header/Header';
@@ -47,6 +47,7 @@ componentWillUnmount() {
 render() {
   return (
     <div className="App">
+    <GlobalStyle/>
     <Header />
      <Switch>
        <Route exact path='/' component={HomePage} />
