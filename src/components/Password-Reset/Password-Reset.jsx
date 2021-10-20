@@ -3,6 +3,7 @@ import FormInput from '../Form-Input/Form-Input';
 import CustomButton from '../Custom-Button/Custom-Button';
 import {auth} from '../../firebase/firebase';
 import './Password-Reset.scss';
+import Message from '../Message/Message';
 
 class PasswordReset extends Component{
 	constructor() {
@@ -17,7 +18,6 @@ class PasswordReset extends Component{
 handleChange = e => {
 	const{value, name} = e.target
      this.setState({[name]: value})
-     console.log(value);
 }
 
   sendResetEmail = e => {
@@ -28,14 +28,14 @@ handleChange = e => {
         setTimeout(
         	() => {
         		this.setState({emailLinkHasBeenSent : false})
-        	}, 3000)
+        	}, 2000)
       })
       .catch(() => {
         this.setState({error : "This Email account hasn't been registered to FLX clothing Ltd"})
         setTimeout(
         	() => {
         		this.setState({error : null})
-        	}, 3000)
+        	}, 2000)
       });
   }
 
@@ -47,16 +47,16 @@ handleChange = e => {
             <h1 className='request'> REQUEST A PASSWORD RESET </h1>
             {
             	emailLinkHasBeenSent && (
-            		<div className='email-link'>
+            		<Message valid>
             			AN EMAIL HAS BEEN SENT TO YOU!
-            		</div>
+            		</Message>
             		)
             }
             {
             	error !== null && (
-            		 <div className='error'>
+            		 <Message error>
             		  {error}
-            		 </div>
+            		 </Message>
             		)
             }
             <form onSubmit={this.sendResetEmail}>

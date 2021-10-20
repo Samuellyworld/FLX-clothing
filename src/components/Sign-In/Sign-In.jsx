@@ -4,6 +4,7 @@ import FormInput from '../Form-Input/Form-Input';
 import CustomButton from '../Custom-Button/Custom-Button';
 import {auth, signInWithGoogle} from '../../firebase/firebase';
 import {Link} from 'react-router-dom';
+import Message from "../Message/Message";
 
 import './Sign-In.scss';
 
@@ -13,7 +14,8 @@ class SignIn extends Component {
   	super(props);
   	this.state = {
        email: '',
-       password: ''
+       password: '',
+       error : null
   		}
   	
   }
@@ -25,6 +27,11 @@ class SignIn extends Component {
       await auth.signInWithEmailAndPassword(email, password);
       this.setState({email: '', password: ''})
      } catch(err) {
+       this.setState({error: 'Incorrect Password'})
+       setTimeout(() => {
+          this.setState({error : null})
+       }, 2000)
+      
        console.log('Error Signing in', err)
      }
   
@@ -36,11 +43,18 @@ class SignIn extends Component {
   }
 
   render() {
+    const {error} = this.state
   	return(
   		<div className='sign-in'>
   		 <h2 className='title'> I already have an account </h2>
   		 <span> Sign in with your email and password </span>
-
+          {
+         error !== null && (
+            <Message error>
+              {error}
+            </Message> 
+           )
+        }
   		 <form onSubmit={this.handleSubmit} >
 
   		 	<FormInput handleChange={this.handleChange}

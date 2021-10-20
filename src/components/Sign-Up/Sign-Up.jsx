@@ -2,6 +2,7 @@ import React from 'react';
 import FormInput from '../Form-Input/Form-Input';
 import CustomButton from '../Custom-Button/Custom-Button';
 import {auth, createUserProfileDocument} from '../../firebase/firebase';
+import Message from '../Message/Message';
 
 import './Sign-Up.scss';
 
@@ -46,6 +47,12 @@ class SignUp extends React.Component {
   	      confirmPassword : ''
   	 	})
   	 } catch(err){
+       this.setState({ error : `An Email account with ${this.state.email} already existed!` });
+       setTimeout(() => {
+         this.setState({
+           error : null
+         })
+       }, 2000)
   	 	console.log('There is an error creating user', err)
   	 }
   }
@@ -64,14 +71,14 @@ class SignUp extends React.Component {
   		  <span> Sign up with your email and password </span>
         {
          error !== null && (
-            <div className='error'> 
+            <Message error>
               {error}
-            </div> 
+            </Message> 
            )
         }
   		  <form className='sign-up-form' onSubmit={this.handleSubmit} >
   		   <FormInput type='text'
-                 minlength="3" maxlength="100" 
+                 minLength="3" maxLength="100" 
   		   			   name='displayName' 
   		   			   value={displayName} 
   		   			   onChange={this.handleChange}
