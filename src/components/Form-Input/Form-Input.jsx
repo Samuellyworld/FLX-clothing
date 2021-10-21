@@ -26,12 +26,42 @@ class FormInput extends Component {
 
   	return (
       <div className='group'>
-		  <input 
-		    type= {showPassword ? "text" : "password"  }
+
+      {
+      	label==='Display Name' ? (
+      		<input 
+		    type= {showPassword===false ? "text" : "password"  }
 		    className='form-input' 
 		     onChange={handleChange}
 		      {...otherProps}
-		      />
+		      /> 
+      		) : null
+        
+      }
+
+      {
+      	 label==='Email'? (
+      		<input 
+		    type= {showPassword===false ? "email" : "password"  }
+		    className='form-input' 
+		     onChange={handleChange}
+		      {...otherProps}
+		      /> 
+      		) : null
+        
+      }
+
+      {
+      	type==='password' ? (
+          <input 
+		    type= {showPassword? "text" : "password"  }
+		    className='form-input' 
+		     onChange={handleChange}
+		      {...otherProps}
+		      /> 
+      		) : null
+      }
+		  
 
 	     {
 	     	label ?
