@@ -28,7 +28,7 @@ class FormInput extends Component {
       <div className='group'>
 
       {
-      	label==='Display Name' ? (
+      	label==='Display Name'  ? (
       		<input 
 		    type= {showPassword===false ? "text" : "password"  }
 		    className='form-input' 
@@ -40,9 +40,21 @@ class FormInput extends Component {
       }
 
       {
-      	 label==='Email' || 'Email Address'? (
+      	 label==='Email' ? (
       		<input 
 		    type= {showPassword===false ? "email" : "password"  }
+		    className='form-input' 
+		     onChange={handleChange}
+		      {...otherProps}
+		      /> 
+      		) : null
+        
+      }
+
+         {
+      	 label==='Email Address' ? (
+      		<input 
+		    type= "email"   
 		    className='form-input' 
 		     onChange={handleChange}
 		      {...otherProps}
