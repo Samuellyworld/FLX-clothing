@@ -40,7 +40,7 @@ class FormInput extends Component {
       }
 
       {
-      	 label==='Email'? (
+      	 label==='Email' || 'Email Address'? (
       		<input 
 		    type= {showPassword===false ? "email" : "password"  }
 		    className='form-input' 
