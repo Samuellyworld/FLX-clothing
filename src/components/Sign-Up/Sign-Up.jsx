@@ -47,12 +47,23 @@ class SignUp extends React.Component {
   	      confirmPassword : ''
   	 	})
   	 } catch(err){
-       this.setState({ error : `An Email account with ${this.state.email} already existed!` });
+
+       if(err.code === 'auth/network-request-failed') {
+           this.setState({error: 'A network error has occurred, Check your network router or perhaps try again later'})
+       setTimeout(() => {
+          this.setState({error : null})
+       }, 2000)
+       }
+
+      else {
+         this.setState({ error : `An Email account with ${this.state.email} already existed!` });
        setTimeout(() => {
          this.setState({
            error : null
          })
        }, 2000)
+      }
+      
   	 	console.log('There is an error creating user', err)
   	 }
   }

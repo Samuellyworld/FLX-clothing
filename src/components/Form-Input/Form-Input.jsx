@@ -30,7 +30,7 @@ class FormInput extends Component {
       {
       	label==='Display Name'  ? (
       		<input 
-		    type= {showPassword===false ? "text" : "password"  }
+		    type= "text" 
 		    className='form-input' 
 		     onChange={handleChange}
 		      {...otherProps}
@@ -42,7 +42,7 @@ class FormInput extends Component {
       {
       	 label==='Email' ? (
       		<input 
-		    type= {showPassword===false ? "email" : "password"  }
+		    type= "email"
 		    className='form-input' 
 		     onChange={handleChange}
 		      {...otherProps}
