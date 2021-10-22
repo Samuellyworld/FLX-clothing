@@ -45,6 +45,12 @@ class SignIn extends Component {
           this.setState({error : null})
        }, 2000)
        }
+       if(err.code === 'auth/too-many-requests') {
+        this.setState({error: 'Access to this account has been temporarily disabled due to many failed login attempts. You can immediately restore it by resetting your password or you can try again later.'})
+       setTimeout(() => {
+          this.setState({error : null})
+       }, 4000)
+       }
     
       
        console.log('Error Signing in', err)
