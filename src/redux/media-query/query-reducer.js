@@ -1,4 +1,4 @@
-import mediaActionTypes from './query-action'; 
+import mediaActionTypes from './query-types'; 
 
 const INITIAL_STATE = {
 	checkForMobileQuery : false
@@ -9,7 +9,7 @@ const queryReducer = (state=INITIAL_STATE, action) => {
 		case mediaActionTypes.CHECK_FOR_MOBILE_QUERY :
 		return {
 			...state,
-			checkForMobileQuery : !checkForMobileQuery
+			checkForMobileQuery : !state.checkForMobileQuery
 		}
 		default :
 		return state
