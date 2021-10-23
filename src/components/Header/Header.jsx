@@ -4,6 +4,7 @@ import {createStructuredSelector} from 'reselect';
 import {selectCartHidden} from '../../redux/cart/cart-selectors';
 import {selectCurrentUser} from '../../redux/user/user-selectors';
 import {clearCart} from '../../redux/cart/cart-action';
+import {selectMobileMedia} from '../../redux/media-query/query-selectors';
 
 import './Header.scss';
 import {auth} from '../../firebase/firebase';
@@ -14,7 +15,7 @@ import img from '../../assets/logo.png';
 
 
 
-const Header = ({currentUser, hidden, clearCart}) => (
+const Header = ({currentUser, hidden, clearCart, mobileMedia}) => (
 		<div className='header'>
 		  <Link className='logo-container' to='/'>
 		  	<img src={img} alt='logo' className='logo'/>
@@ -35,11 +36,22 @@ const Header = ({currentUser, hidden, clearCart}) => (
 		  	    SIGN OUT
 		  	   </Link>
 		  		) :
-		  		(
+		  	  
+		  	  	mobileMedia ?
+		  	  	(
+		  	    <div>
+			  		<Link className='option' to='/signin' >
+			  			 SIGN IN
+	     			</Link>
+	     			<Link className='option' to='/register' >
+			  			 REGISTER
+	     			</Link>
+     			</div>
+		  		) : 
 		  		<Link className='option' to='/signin' >
 		  			 SIGN IN
      			</Link>
-		  		)
+		  	    		
 		  }
 		     <CartIcon/>
 		  </div>
@@ -55,6 +67,7 @@ const mapDispatchToProps = (dispatch) => ({
 })
 const mapStateToProps = createStructuredSelector({
 	currentUser : selectCurrentUser,
-	hidden : selectCartHidden
+	hidden : selectCartHidden,
+	mobileMedia : selectMobileMedia
 })
 export default connect(mapStateToProps, mapDispatchToProps)(Header);
