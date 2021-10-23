@@ -24,6 +24,16 @@ $main-color : black;
  	border-bottom: 1px solid $sub-color;
  	margin: 25px 0;
 
+  @media screen and (max-width: 800px) {
+    width: 100%;
+  }
+  @media screen and (max-width: 420px) {
+    width: 80vw;
+    img {
+      right: 74px;
+    }
+  }
+
 
   &:focus {
   	outline: none;
@@ -53,7 +63,7 @@ $main-color : black;
   	left: 5px;
   	top: 10px;
   	transition: 300ms ease all;
-
+ 
   &.shrink {
   	@include ShrinkLabel()
   }
@@ -65,5 +75,13 @@ $main-color : black;
     right: 50px;
     transform: translateY(-50%);
     cursor: pointer;
+
+    @media screen and (max-width: 375px) {
+      right: 84px;
+    
+  }
+     @media screen and (max-width: 800px) and(min-width: 550px) {
+      right: 17px;
+  }
   }
 }
