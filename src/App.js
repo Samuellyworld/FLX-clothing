@@ -34,8 +34,13 @@ MobileMedia = (mediaQuery) => {
 }
 
 componentDidMount() {
-   const {setCurrentUser} = this.props
+   const {setCurrentUser, checkCurrentMedia} = this.props
    this.mediaQuery.addListener(this.MobileMedia)
+     if(this.mediaQuery.matches) {
+       checkCurrentMedia()
+     } else {
+       checkCurrentMedia()
+     }
 
   this.unsubscribeFromAuth = auth.onAuthStateChanged( async userAuth => {
     if(userAuth) {

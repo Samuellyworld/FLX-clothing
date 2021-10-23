@@ -43,7 +43,7 @@ const Header = ({currentUser, hidden, clearCart, mobileMedia}) => (
 			  		<Link className='option' to='/signin' >
 			  			 SIGN IN
 	     			</Link>
-	     			<Link className='option' to='/register' >
+	     			<Link className to='/register' >
 			  			 REGISTER
 	     			</Link>
      			</div>
