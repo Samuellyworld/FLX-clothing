@@ -4,9 +4,14 @@
     justify-content: space-between;
     margin: 30px auto;
 
-  	 @media screen and (max-width: 800px) and(min-width : 550px ){
+  	 @media screen and (max-width: 800px) and(min-width : 709px ){
   	 	justify-content : center;
   	 	text-align: center;
+  	 }
+  	 @media screen and (max-width : 710px) and (min-width : 430px) {
+  	 	justify-content: center;
+  	 	text-align: center;
+  	 	margin-left: -185px;
   	 }
   
 
