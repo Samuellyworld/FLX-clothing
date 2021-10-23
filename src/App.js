@@ -4,10 +4,10 @@ import { Switch, Route, Redirect} from 'react-router-dom';
 
 import {connect} from 'react-redux';
 import {setCurrentUser} from './redux/user/user-action';
-import {setMediaQuery} from './redux/media-query/query-action';
 import {createStructuredSelector} from 'reselect';
 import {selectCurrentUser} from './redux/user/user-selectors';
 import {checkForMobileQuery} from './redux/media-query/query-action';
+import {selectMobileMedia} from './redux/media-query/query-selectors';
 
 import {auth, createUserProfileDocument} from './firebase/firebase';
 
@@ -70,28 +70,35 @@ componentWillUnmount() {
 }
 
 render() {
+  const {currentUser, currentMobileMedia} = this.props
   return (
     <div className="App">
     <Header />
      <Switch>
        <Route exact path='/' component={HomePage} />
        <Route path='/shop' component={ShopPage} />
-       <Route path='/signin' render={() => this.props.currentUser ? (<Redirect to ='/' />): (<SignInAndSignUpPage />) } />
+       <Route path='/signin' render={() => currentUser ? (<Redirect to ='/' />): (<SignInAndSignUpPage />) } />
        <Route exact path='/checkout' component={CheckoutPage} /> 
        <Route exact path='/reset password' component={PasswordReset} />
-       <Route path='/register' render={() => this.props.currentUser ? (<Redirect to ='/' />): (<SignUp />) } />
+        {
+          currentMobileMedia ? (
+             <Route path='/register' render={() => this.props.currentUser ? (<Redirect to ='/' />): (<SignUp />) } />
+            ) : null
+         
+        }
+       
       </Switch>
     </div>
   );
 }
 }
 const mapStateToProps = createStructuredSelector({
-  currentUser : selectCurrentUser
+  currentUser : selectCurrentUser,
+  currentMobileMedia : selectMobileMedia
 })
 
 const mapDispatchToProps = dispatch => ({
  setCurrentUser: user => dispatch(setCurrentUser(user)),
- setMediaQuery: media => dispatch(setMediaQuery(media)),
  checkCurrentMedia : () => dispatch(checkForMobileQuery())
 });
 
