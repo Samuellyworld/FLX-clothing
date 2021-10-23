@@ -4,8 +4,10 @@ import { Switch, Route, Redirect} from 'react-router-dom';
 
 import {connect} from 'react-redux';
 import {setCurrentUser} from './redux/user/user-action';
+import {setMediaQuery} from './redux/media-query/query-action';
 import {createStructuredSelector} from 'reselect';
 import {selectCurrentUser} from './redux/user/user-selectors';
+import {checkForMobileQuery} from './redux/media-query/query-action';
 
 import {auth, createUserProfileDocument} from './firebase/firebase';
 
@@ -19,8 +21,19 @@ import SignInAndSignUpPage from './Pages/Sign-in-and-sign-up/Sign-in-and-sign-up
 
 class App extends React.Component {
 unsubscribeFromAuth = null;
+
+mediaQuery = window.matchMedia("(max-width: 600px)")
+
+MobileMedia = (mediaQuery) => {
+  if(mediaQuery.matches) {
+     this.props.checkCurrentMedia()
+  }
+}
+
 componentDidMount() {
    const {setCurrentUser} = this.props
+   this.mediaQuery.addListener(this.MobileMedia)
+
   this.unsubscribeFromAuth = auth.onAuthStateChanged( async userAuth => {
     if(userAuth) {
       const userRef = await createUserProfileDocument(userAuth);
@@ -36,6 +49,10 @@ componentDidMount() {
       
   
   })
+}
+
+componentDidUpdate() {
+    this.mediaQuery.addListener(this.MobileMedia)
 }
 
 componentWillUnmount() {
@@ -64,7 +81,8 @@ const mapStateToProps = createStructuredSelector({
 
 const mapDispatchToProps = dispatch => ({
  setCurrentUser: user => dispatch(setCurrentUser(user)),
- 
+ setMediaQuery: media => dispatch(setMediaQuery(media)),
+ checkCurrentMedia : () => dispatch(checkForMobileQuery())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
