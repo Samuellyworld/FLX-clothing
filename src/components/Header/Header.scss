@@ -27,7 +27,8 @@
  	margin-top: -25px;
 
  @media screen and (max-width: 800px) {
-    margin-top: -15px;
+    height: 53px;
+    margin-top: -8px;
   }
   
  }
@@ -42,15 +43,27 @@
 @media screen and (max-width: 800px) {
     width: 80%;
   }
+
   .option {
-  	padding: 10px 10px;
+  	padding: 10px 6px;
   	cursor: pointer;
+  }
+
+  @media screen and (max-width: 361px) {
+     width: 90%;
+  }
+  @media screen and(max-width: 350px) {
+    width: 93%;
+    .option {
+        padding: 10px 4px;
+        font-size: 13px;
+    }
   }
 
   .sign-in-options {
     @media screen and (max-width: 800px) {
     .option {
-        padding: 10px 8px;
+        padding: 10px 6px;
     }  
     }
   }
