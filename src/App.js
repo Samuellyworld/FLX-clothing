@@ -27,6 +27,8 @@ mediaQuery = window.matchMedia("(max-width: 600px)")
 MobileMedia = (mediaQuery) => {
   if(mediaQuery.matches) {
      this.props.checkCurrentMedia()
+  } else {
+    this.props.checkCurrentMedia()
   }
 }
 
