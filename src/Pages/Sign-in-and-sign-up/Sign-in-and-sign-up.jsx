@@ -11,7 +11,8 @@ const SignInAndSignUpPage = ({currentMedia}) => (
      <div className='sign-in-and-sign-up'> 
           
              {  currentMedia ?
-                <SignIn /> :
+
+                <SignIn/> :
                 (
                   <div className='sign-in-and-sign-up'>
                      <SignIn /> 
