@@ -12,6 +12,11 @@
   	margin-bottom: 25px;
     width: 3.5%;
     cursor: pointer;
+
+   @media screen and (max-width: 800px) {
+    margin-left: -60px;
+    color : #DA8717
+  }
     
   &:hover {
     color: grey;

@@ -5,6 +5,9 @@
 	.title {
 		font-size: 35px;
 		margin : 0 auto 30px;
+     @media screen and (max-width: 800px) {
+    color: #DA8717;
+  }
 	}
 	.items {
 		display : grid;
