@@ -31,7 +31,7 @@ handleChange = e => {
         	}, 2000)
       })
       .catch(() => {
-        this.setState({error : "This Email account hasn't been registered to FLX clothing Ltd"})
+        this.setState({error : "This Email account hasn't been registered with FLX clothing Ltd"})
         setTimeout(
         	() => {
         		this.setState({error : null})

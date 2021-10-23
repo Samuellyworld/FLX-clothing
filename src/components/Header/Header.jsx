@@ -37,7 +37,7 @@ const Header = ({currentUser, hidden, clearCart, mobileMedia}) => (
 		  	   </Link>
 		  		) :
 		  	  
-		  	  	mobileMedia === true?
+		  	  	mobileMedia ?
 		  	  	(
 		  	    <div className="sign-in-options">
 			  		<Link className='option ul' to='/signin' >
