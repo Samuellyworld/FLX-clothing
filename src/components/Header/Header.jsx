@@ -37,13 +37,13 @@ const Header = ({currentUser, hidden, clearCart, mobileMedia}) => (
 		  	   </Link>
 		  		) :
 		  	  
-		  	  	mobileMedia ?
+		  	  	mobileMedia === true?
 		  	  	(
-		  	    <div>
-			  		<Link className='option' to='/signin' >
+		  	    <div className="sign-in-options">
+			  		<Link className='option ul' to='/signin' >
 			  			 SIGN IN
 	     			</Link>
-	     			<Link className to='/register' >
+	     			<Link className='option' to='/register' >
 			  			 REGISTER
 	     			</Link>
      			</div>

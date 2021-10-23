@@ -22,7 +22,7 @@ import SignInAndSignUpPage from './Pages/Sign-in-and-sign-up/Sign-in-and-sign-up
 class App extends React.Component {
 unsubscribeFromAuth = null;
 
-mediaQuery = window.matchMedia("(max-width: 600px)")
+mediaQuery = window.matchMedia("(max-width: 800px)")
 
 MobileMedia = (mediaQuery) => {
   if(mediaQuery.matches) {
@@ -38,9 +38,8 @@ componentDidMount() {
    this.mediaQuery.addListener(this.MobileMedia)
      if(this.mediaQuery.matches) {
        checkCurrentMedia()
-     } else {
-       checkCurrentMedia()
      }
+    
 
   this.unsubscribeFromAuth = auth.onAuthStateChanged( async userAuth => {
     if(userAuth) {
@@ -61,6 +60,7 @@ componentDidMount() {
 
 componentDidUpdate() {
     this.mediaQuery.addListener(this.MobileMedia)
+  
 }
 
 componentWillUnmount() {

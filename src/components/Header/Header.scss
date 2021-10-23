@@ -9,6 +9,7 @@
     height: 60px;
     padding: 10px;
     margin-bottom: 20px;
+    padding-left: 1px;
   }
 
  .logo-container {
@@ -42,8 +43,16 @@
     width: 80%;
   }
   .option {
-  	padding: 10px 15px;
+  	padding: 10px 10px;
   	cursor: pointer;
+  }
+
+  .sign-in-options {
+    @media screen and (max-width: 800px) {
+    .option {
+        padding: 10px 8px;
+    }  
+    }
   }
 
  }
