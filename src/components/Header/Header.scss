@@ -45,13 +45,18 @@
   }
 
   .option {
-  	padding: 10px 6px;
+  	padding: 10px 15px;
   	cursor: pointer;
   }
 
-  @media screen and (max-width: 361px) {
+  @media screen and (max-width: 430px) {
      width: 90%;
-  }
+    .option {
+          padding: 10px 6px;
+      }
+   
+        }
+    
   @media screen and(max-width: 350px) {
     width: 93%;
     .option {

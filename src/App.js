@@ -86,6 +86,7 @@ render() {
             ) : null
          
         }
+        <Route path='*' component={HomePage}/>
        
       </Switch>
     </div>
