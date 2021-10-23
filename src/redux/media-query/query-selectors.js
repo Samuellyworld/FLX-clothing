@@ -8,7 +8,7 @@ export const selectMediaQuery = createSelector(
    media => media.mediaQueryWidth
 	)
 
-export const selectCheckForMobile = createSelector(
+export const selectMobileMedia = createSelector(
    [selectMedia],
      media => media.checkForMobileQuery
 	)
