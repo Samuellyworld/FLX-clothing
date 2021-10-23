@@ -18,6 +18,7 @@ import Header from './components/Header/Header';
 import HomePage from './Pages/HomePage/HomePage';
 import ShopPage from './Pages/Shop/ShopPage';
 import SignInAndSignUpPage from './Pages/Sign-in-and-sign-up/Sign-in-and-sign-up';
+import SignUp from './components/Sign-Up/Sign-Up';
 
 class App extends React.Component {
 unsubscribeFromAuth = null;
@@ -78,6 +79,7 @@ render() {
        <Route path='/signin' render={() => this.props.currentUser ? (<Redirect to ='/' />): (<SignInAndSignUpPage />) } />
        <Route exact path='/checkout' component={CheckoutPage} /> 
        <Route exact path='/reset password' component={PasswordReset} />
+       <Route path='/register' render={() => this.props.currentUser ? (<Redirect to ='/' />): (<SignUp />) } />
       </Switch>
     </div>
   );
