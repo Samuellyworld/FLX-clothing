@@ -42,7 +42,7 @@
  }
 
 
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 550px) {
     width: 40vw;
     .image {
       width : 45vw;
@@ -58,6 +58,14 @@
       }
     }
   }
+
+@media screen and (max-width: 799px) and (min-width: 551px) {
+  width : 45vw
+}
+
+@media screen and (max-width: 1000px) and (min-width: 800px) {
+  width : 21vw;
+}
 
  .collection-footer {
  	width: 100%;
