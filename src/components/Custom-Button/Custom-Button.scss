@@ -16,6 +16,11 @@
 	display: flex;
 	justify-content: center;
 
+	@media screen and (max-width: 375px){
+		    min-width: 138px;
+    		padding: 0px 4px 0px 0px;
+    	}
+
  &:hover {
  	background-color: white;
  	color: black;
@@ -38,6 +43,10 @@
  	background-color: #4285f4;
  	color: white;
  	margin-left: 15px;
+
+ 	@media screen and (max-width: 375px) {
+ 		margin-right: 29px;
+ 	}
 
    &:hover {
  	background-color: #357ac8;
