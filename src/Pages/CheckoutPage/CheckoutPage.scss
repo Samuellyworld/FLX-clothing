@@ -13,8 +13,15 @@
  	justify-content : space-between;
  	border-bottom: 1px solid darkgrey;
 
-  @media screen and (max-width: 420px) {
+  @media screen and (max-width: 550px) and (min-width: 420px) {
     width: 71vw
+  }
+
+  @media screen and (max-width:420px) and (min-width: 380px) {
+    width: 76vw
+  }
+  @media screen and (max-width : 376px)  {
+    width: 82vw
   }
 
   .header-block {
@@ -30,5 +37,10 @@
  	margin-top : 30px;
  	margin-left : auto;
  	font-size : 36px;
+
+   @media screen and (max-width: 500px) {
+    font-size: 29px;
+   }
  }
+
 }

@@ -48,6 +48,11 @@
   margin-top: 40px;
   font-size: 24px;
   color: red;
+
+ @media screen and (max-width: 800px){
+    margin-top: 27px;
+    font-size: 19px;
+  }
  }
  
 }
