@@ -13,9 +13,18 @@
  	justify-content : space-between;
  	border-bottom: 1px solid darkgrey;
 
+  @media screen and (max-width: 800px){
+    margin-left: -16px;
+    width : 71vw;
+}
   .header-block {
   	text-transform: capitalize;
   	width: 23%;
+
+    @media screen and (max-width: 800px){
+     margin-right: 10px;
+     margin-left: 10px;
+    }
 
     &:last-child {
     	width: 8%;
