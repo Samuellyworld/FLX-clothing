@@ -8,9 +8,17 @@
   font-size: 20px;
   align-items: center;
 
-  @media screen and (max-width: 800px){
+  @media screen and (max-width: 800px) {
     width: 70vw;
   }
+
+  @media screen and (max-width: 450px) and (min-width : 380px) {
+    width : 78vw;
+  }
+
+    @media screen and (max-width: 376px)  {
+      width : 80vw;
+    }
 
   .image-container {
     width: 23%;
@@ -26,10 +34,16 @@
   .price {
     width: 23%;
 
-    @media screen and (max-width: 800px){
+    @media screen and (max-width: 800px) and (min-width: 400px) {
       margin-left: 10px;
       margin-right: 10px;
     }
+      @media screen and (max-width: 376px) and (min-width: 365px) {
+        margin-left: 19px; 
+      }
+      @media screen and (max-width: 360px) {
+        margin-left: 26px; 
+      }
   }
 
   .quantity {
@@ -47,9 +61,12 @@
     padding-left: 12px;
     cursor: pointer;
 
-    @media screen and (max-width: 800px){
+    @media screen and (max-width: 800px) and (min-width: 390px) {
      padding-left: 0px;
      margin-right: 17px;
+    }
+    @media screen and (max-width: 376px) {
+      margin-right: 20px;
     }
   }
 }

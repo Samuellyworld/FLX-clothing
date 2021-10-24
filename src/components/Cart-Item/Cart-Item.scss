@@ -16,6 +16,10 @@
     justify-content: center;
     padding: 10px 20px;
 
+    @media screen and (max-width: 800px) {
+      margin-top: -43px;
+    }
+
     .name {
       font-size: 16px;
     }
