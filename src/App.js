@@ -89,7 +89,8 @@ render() {
                 ) : null
              
             }
-            <Route path="404" component={HomePage}/>
+            <Route path="/404" component={HomePage}/>
+            <Redirect to='/404' />
           </Suspense>
         </Switch>
     </div>
