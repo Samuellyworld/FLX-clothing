@@ -13,7 +13,7 @@ import {auth, createUserProfileDocument} from './firebase/firebase';
 
 import './App.scss';
 import Header from './components/Header/Header';
-
+import Spinner from './components/Spinner/Spinner';
 const HomePage = lazy(() => import('./Pages/HomePage/HomePage'));
 const ShopPage = lazy(() => import('./Pages/Shop/ShopPage'));
 // const Header = lazy(() => import('./components/Header/Header'));
@@ -77,7 +77,7 @@ render() {
     <div className="App">
       <Header />
        <Switch>
-         <Suspense fallback={<div> ..loding </div> }>
+         <Suspense fallback={<Spinner/> }>
            <Route exact path='/' component={HomePage} />
            <Route path='/shop' component={ShopPage} />
            <Route path='/signin' render={() => currentUser ? (<Redirect to ='/' />): (<SignInAndSignUpPage />) } />
@@ -89,8 +89,7 @@ render() {
                 ) : null
              
             }
-            <Route path="/404" component={HomePage}/>
-            <Redirect to='/404' />
+           
           </Suspense>
         </Switch>
     </div>
