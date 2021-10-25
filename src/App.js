@@ -87,11 +87,10 @@ render() {
            <Route exact path='/reset password' component={PasswordReset} />
             {
               currentMobileMedia ? (
-                 <Route path='/register' render={() => this.props.currentUser ? (<Redirect to ='/' />): (<SignUp />) } />
+                 <Route path='/register' render={() => currentUser ? (<Redirect to ='/' />): (<SignUp />) } />
                 ) : null
              
             }
-       
           </Suspense>
          </ErrorBoundary> 
         </Switch>

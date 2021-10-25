@@ -55,15 +55,22 @@ class SignUp extends React.Component {
        }, 2000)
        }
 
-      else {
-         this.setState({ error : `An Email account with ${this.state.email} already existed!` });
+      if(err.code === 'auth/email-already-in-use') {
+         this.setState({ error : `${this.state.email} is already in use by another account.` });
        setTimeout(() => {
          this.setState({
            error : null
          })
        }, 2000)
       }
-      
+      if(err.code === 'auth/invalid-email' ) {
+         this.setState({ error : 'The email address is badly formatted.' });
+       setTimeout(() => {
+         this.setState({
+           error : null
+         })
+       }, 2000)
+      }
   	 	console.log('There is an error creating user', err)
   	 }
   }

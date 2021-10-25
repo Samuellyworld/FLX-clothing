@@ -7,7 +7,7 @@ class ErrorBoundary extends Component {
 	constructor( ) {
 		super();
 		this.state = {
-           error : true
+           error : false
 		}
 
 	}

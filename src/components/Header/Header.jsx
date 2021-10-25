@@ -29,7 +29,7 @@ const Header = ({currentUser, hidden, clearCart, mobileMedia}) => (
 		  </Link> 
 		  {
 		  	currentUser ? (
-		  	  <Link className='option' onClick={()=> {
+		  	  <Link to='/' className='option' onClick={()=> {
 		  	  	auth.signOut()
 		  	  	clearCart()
 		  	  }}>
