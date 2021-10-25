@@ -14,9 +14,10 @@ import {auth, createUserProfileDocument} from './firebase/firebase';
 import './App.scss';
 import Header from './components/Header/Header';
 import Spinner from './components/Spinner/Spinner';
+import ErrorBoundary from './components/Error-Boundary/Error-Boundary';
+
 const HomePage = lazy(() => import('./Pages/HomePage/HomePage'));
 const ShopPage = lazy(() => import('./Pages/Shop/ShopPage'));
-// const Header = lazy(() => import('./components/Header/Header'));
 const CheckoutPage = lazy(() => import('./Pages/CheckoutPage/CheckoutPage'));
 const PasswordReset = lazy(() => import('./components/Password-Reset/Password-Reset'));
 const SignInAndSignUpPage = lazy(() => import('./Pages/Sign-in-and-sign-up/Sign-in-and-sign-up'));
@@ -77,6 +78,7 @@ render() {
     <div className="App">
       <Header />
        <Switch>
+        <ErrorBoundary>
          <Suspense fallback={<Spinner/> }>
            <Route exact path='/' component={HomePage} />
            <Route path='/shop' component={ShopPage} />
@@ -89,8 +91,9 @@ render() {
                 ) : null
              
             }
-          
+       
           </Suspense>
+         </ErrorBoundary> 
         </Switch>
     </div>
   );
