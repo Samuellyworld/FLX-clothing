@@ -1,8 +1,7 @@
 import mediaActionTypes from './query-types'; 
 
 const INITIAL_STATE = {
-	checkForMobileQuery : false,
-	mediaQueryWidth : null
+	checkForMobileQuery : false
 }
 
 const queryReducer = (state=INITIAL_STATE, action) => {
@@ -11,11 +10,6 @@ const queryReducer = (state=INITIAL_STATE, action) => {
 		return {
 			...state,
 			checkForMobileQuery : !state.checkForMobileQuery
-		}
-		case mediaActionTypes.MOBILE_MEDIA_WIDTH :
-		return {
-			...state,
-			mediaQueryWidth : action.payload
 		}
 		default :
 		return state
