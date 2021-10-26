@@ -30,13 +30,23 @@ handleChange = e => {
         		this.setState({emailLinkHasBeenSent : false})
         	}, 2000)
       })
-      .catch(() => {
-        this.setState({error : "This Email account hasn't been registered with FLX clothing Ltd"})
+      .catch((err) => {
+
+         if(err.code === 'auth/network-request-failed') {
+           this.setState({error: 'A network error has occurred, Check your network router or perhaps try again later'})
+           setTimeout(() => {
+             this.setState({error : null})
+         }, 2000)
+       }
+       else {
+        this.setState({error : `${this.state.email} hasn't been registered with FLX clothing Ltd, Kindly register`})
         setTimeout(
-        	() => {
-        		this.setState({error : null})
-        	}, 2000)
-      });
+          () => {
+            this.setState({error : null})
+          }, 2000)
+       }
+     }
+    )
   }
 
 	render(){

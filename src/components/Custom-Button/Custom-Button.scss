@@ -47,6 +47,9 @@
  	@media screen and (max-width: 375px) {
  		margin-right: 29px;
  	}
+	@media screen and (max-width: 420px) and (min-width : 400px) {
+		margin-left: 3px;
+	}
 
    &:hover {
  	background-color: #357ac8;
