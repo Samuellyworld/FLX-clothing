@@ -7,7 +7,7 @@ const StripeCheckoutButton = ({price}) => {
 	const publishKey = 'pk_test_51Jemj7JuNvlr0BgnBVfb6INJGWdxbSLLtu4kDpPkP9aabRggE7hBbsT6hBTvXI2KFJhwHfwR74DKwSGC6J5SNK3q00zhNL38wz';
 	const onToken = token => {
     axios({
-        url : 'http://localhost:5000/payment',
+        url : 'https://flx-stripe-api.herokuapp.com/payment',
         method : 'post',
         headers : {'Content-Type': 'application/json'},
         data : {
