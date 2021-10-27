@@ -109,6 +109,7 @@ class SignUp extends React.Component {
   		   			   label='Email' 
   		   			   required />	 
   		   	<FormInput type='password'
+                 autoComplete='password'
   		   			   name='password' 
                  title="Please include at least 1 uppercase character, 1 lowercase character, and 1 number, (min.8 characters)" 
                  pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$"
@@ -117,6 +118,7 @@ class SignUp extends React.Component {
   		   			   label='Password' 
   		   			   required />
   		   	<FormInput type='password'
+                autoComplete='new-password'
   		   			   name='confirmPassword' 
   		   			   value={confirmPassword} 
                  pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$"
