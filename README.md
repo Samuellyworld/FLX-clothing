@@ -1,3 +1,3 @@
 # FLX-clothing
 
-Project in view
+ An Ecommerce web app store live at - https://flx-clothing.herokuapp.com/;
