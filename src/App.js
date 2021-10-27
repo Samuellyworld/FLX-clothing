@@ -83,7 +83,8 @@ render() {
            <Route exact path='/' component={HomePage} />
            <Route path='/shop' component={ShopPage} />
            <Route path='/signin' render={() => currentUser ? (<Redirect to ='/' />): (<SignInAndSignUpPage />) } />
-           <Route exact path='/checkout' component={CheckoutPage} /> 
+           <Route exact path='/checkout' render ={() =>
+               currentUser ? (<CheckoutPage />): (<Redirect to ='/' />)} /> 
            <Route exact path='/reset password' component={PasswordReset} />
             {
               currentMobileMedia ? (
