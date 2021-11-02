@@ -1,6 +1,8 @@
   @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
   .valid{
+    margin-top: 10px; 
+    margin-bottom: 10px;
   	font-family: 'Roboto', sans-serif;
   	font-size: 0.9em;
     color : green;
@@ -13,6 +15,6 @@
 
    @media screen and (max-width: 380px) {
     font-size: 1.0em;
-    width: 76vw;
+    width: 70vw;
    }
   }

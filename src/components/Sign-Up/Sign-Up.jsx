@@ -4,6 +4,7 @@ import CustomButton from '../Custom-Button/Custom-Button';
 import {auth, createUserProfileDocument} from '../../firebase/firebase';
 import Message from '../Message/Message';
 
+
 import './Sign-Up.scss';
 
 class SignUp extends React.Component {
@@ -14,11 +15,14 @@ class SignUp extends React.Component {
   		email : '',
   		password : '',
   		confirmPassword : '',
-      error : null
+      error : null,
+      userHasRegistered: false,
+      redirectToHomePage : false
   	}
   }
 
-  handleSubmit = async event => {
+
+  handleSubmit = event => {
   	event.preventDefault();
   	const {displayName, email, password, confirmPassword} = this.state;
   	 if(password !== confirmPassword ) {
@@ -28,26 +32,37 @@ class SignUp extends React.Component {
          this.setState({
            error : null
          })
-       }, 3000)
+       }, 2000)
   	 	return;
   	 }
-  	 try {
   	 	// const{user} = await auth.createUserWithEmailAndPassword(email, password);
-       const {user} = await auth.createUserWithEmailAndPassword(email, password)
+       const {user} =  auth.createUserWithEmailAndPassword(email, password)
          //   await user.sendEmailVerification();
          //    await auth.signOut();
          // alert("Email sent");
-      
-  	 	await createUserProfileDocument(user, {displayName})
+      .then(() => createUserProfileDocument(user, {displayName}))
+  	 	 .then(() => {
+          this.setState({
+           displayName : '',
+            email : '',
+          password : '',
+          confirmPassword : '',
+          userHasRegistered: true,
+          redirectToHomePage: false
+       })
+          setTimeout(() => {
+            this.setState({redirectToHomePage : true})
+          }, 2000)
+          setTimeout(() => {
+            this.setState({
+              userHasRegistered: false,
+              redirectToHomePage : false
+            })
+          }, 20000)
+          
+        })
 
-  	 	this.setState({
-  	 	  displayName : '',
-  		  email : '',
-  	  	  password : '',
-  	      confirmPassword : ''
-  	 	})
-  	 } catch(err){
-
+  	.catch((err)=> {
        if(err.code === 'auth/network-request-failed') {
            this.setState({error: 'A network error has occurred, Check your network router or perhaps try again later'})
        setTimeout(() => {
@@ -72,7 +87,7 @@ class SignUp extends React.Component {
        }, 2000)
       }
   	 	console.log('There is an error creating user', err)
-  	 }
+  	 })
   }
 
   handleChange = event => {
@@ -81,12 +96,34 @@ class SignUp extends React.Component {
   }
 
   render() {
-  	     const {displayName, email, password, confirmPassword, error} = this.state;
+  	     const {displayName, email, password, confirmPassword, error,userHasRegistered} = this.state;
   	return (
 
   		<div className='sign-up'>
   		  <h2 className='title'> I do not have an account </h2>
   		  <span> Sign up with your email and password </span>
+        {
+          userHasRegistered && (
+           <div>
+            <Message valid>
+             Hello {displayName},Your account has been registered successfully! 
+            </Message>
+     
+            {
+              this.state.redirectToHomePage && (
+
+                   <Message valid>
+                    Redirecting to Homepage ...
+                   </Message>
+          
+                )
+             
+            }
+            </div>
+
+             )
+
+        }
         {
          error !== null && (
             <Message error>

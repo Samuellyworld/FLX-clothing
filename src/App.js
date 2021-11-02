@@ -69,7 +69,7 @@ componentDidUpdate() {
 
 componentWillUnmount() {
   this.unsubscribeFromAuth();
-
+  
 }
 
 render() {
